@@ -24,7 +24,8 @@ def getIcons(img, mask):
             y = int(circles[0][n][1])
             radius = int(circles[0][n][2])
             cropped = img[y-radius:y+radius,x-radius:x+radius].copy()
-            icons.append(cropped)
+            icon = cv2.resize(cropped, (24, 24), interpolation = cv2.INTER_AREA) 
+            icons.append(icon)
     return icons
 
 def extractIcons(img):
